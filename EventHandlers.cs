@@ -24,6 +24,7 @@ namespace _173AHPBuff
             this.random = new Random();
             this.isSpawning = false;
             this.plugin = plugin;
+            this.scp173 = null;
             shotCooldown = 0;
             
         }
@@ -39,9 +40,11 @@ namespace _173AHPBuff
             }
         }
 
-        internal void Shot(ShotEventArgs ev)
+
+
+        internal void Hurt(HurtingEventArgs ev)
         {
-            if (ev.Target == scp173.GameObject)
+            if(ev.Target == scp173)
             {
                 shotCooldown += 1;
                 Log.Debug("Shot cooldown is now " + shotCooldown);
@@ -50,6 +53,14 @@ namespace _173AHPBuff
                     shotCooldown -= 1;
                     Log.Debug("Shot cooldown is now " + shotCooldown);
                 });
+            }
+            if (plugin.Config.AllDmgToAHP && ev.Target.Role == RoleType.Scp173 && ev.Target.ArtificialHealth > 0)
+            {
+                ev.IsAllowed = false;
+                scp173.ArtificialHealth -= ev.Amount;
+            } else
+            {
+                ev.IsAllowed = true;
             }
         }
 
@@ -64,7 +75,7 @@ namespace _173AHPBuff
             while (true)
             {
                 Log.Debug("Called");
-                if (shotCooldown <= 0)
+                if (shotCooldown <= 0 && scp173 != null)
                 {
                     Log.Debug("Shot cooldown is 0");
                     if (scp173.ArtificialHealth < plugin.Config.MaxAHP)

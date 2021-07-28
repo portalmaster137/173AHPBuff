@@ -29,7 +29,7 @@ namespace _173AHPBuff
             if (Config.IsEnabled)
             {
                 Player.ChangedRole += eventHandler.Changed;
-                Player.Shot += eventHandler.Shot;
+                Player.Hurting += eventHandler.Hurt;
                 Server.RoundStarted += eventHandler.Start;
                 Server.EndingRound += eventHandler.End;
             }
@@ -41,7 +41,7 @@ namespace _173AHPBuff
             if (Config.IsEnabled)
             {   
                 Player.ChangedRole -= eventHandler.Changed;
-                Player.Shot -= eventHandler.Shot;
+                Player.Hurting -= eventHandler.Hurt;
                 Server.RoundStarted -= eventHandler.Start;
                 Server.EndingRound -= eventHandler.End;
             }
