@@ -25,6 +25,7 @@ namespace _173AHPBuff
             this.isSpawning = false;
             this.plugin = plugin;
             this.scp173 = null;
+            this.runningCo = new CoroutineHandle();
             shotCooldown = 0;
             
         }
@@ -64,13 +65,14 @@ namespace _173AHPBuff
             }
         }
 
+   
         internal void End(EndingRoundEventArgs ev)
         {
-            Timing.KillCoroutines(shotCooldown);
+            Timing.KillCoroutines(runningCo);
             
         }
 
-        public IEnumerator<float> shotCoRoutine()
+        public IEnumerator<float> ShotCoRoutine()
         {
             while (true)
             {
@@ -93,7 +95,7 @@ namespace _173AHPBuff
 
         internal void Start()
         {
-            Timing.RunCoroutine(shotCoRoutine());
+            runningCo = Timing.RunCoroutine(ShotCoRoutine());
             //Log.Debug("Coroutine Started");
         }
     }
