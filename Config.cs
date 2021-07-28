@@ -16,6 +16,12 @@ namespace _173AHPBuff
         public bool IsEnabled { get; set; } = true;
         public int MaxAHP { get; set; } = 1000;
         public int DelayTime { get; set; } = 10;
+
+        public bool AllDmgToAHP { get; set; } = false;
+
+        public int HealthToHealPerTick { get; set; } = 2;
+
+        public float TimeToWaitPerTick { get; set; } = 0.2f;
        
     }
 }
