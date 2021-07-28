@@ -47,11 +47,11 @@ namespace _173AHPBuff
             if(ev.Target == scp173)
             {
                 shotCooldown += 1;
-                Log.Debug("Shot cooldown is now " + shotCooldown);
+                //Log.Debug("Shot cooldown is now " + shotCooldown);
                 Timing.CallDelayed(plugin.Config.DelayTime, () =>
                 {
                     shotCooldown -= 1;
-                    Log.Debug("Shot cooldown is now " + shotCooldown);
+                    //Log.Debug("Shot cooldown is now " + shotCooldown);
                 });
             }
             if (plugin.Config.AllDmgToAHP && ev.Target.Role == RoleType.Scp173 && ev.Target.ArtificialHealth > 0)
@@ -74,10 +74,10 @@ namespace _173AHPBuff
         {
             while (true)
             {
-                Log.Debug("Called");
+                //Log.Debug("Called");
                 if (shotCooldown <= 0 && scp173 != null)
                 {
-                    Log.Debug("Shot cooldown is 0");
+                    //Log.Debug("Shot cooldown is 0");
 
                     for (int i = 0; i < plugin.Config.HealthToHealPerTick; i++)
                     {
@@ -94,7 +94,7 @@ namespace _173AHPBuff
         internal void Start()
         {
             Timing.RunCoroutine(shotCoRoutine());
-            Log.Debug("Coroutine Started");
+            //Log.Debug("Coroutine Started");
         }
     }
 }
