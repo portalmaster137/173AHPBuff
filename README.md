@@ -1,5 +1,5 @@
 # 173AHPBuff
-Re-creates the upcomming SCP-173 AHP Feature in SCPSL 1.11
+Re-creates the upcomming SCP-173 AHP Feature in SCPSL 1.11 as a plugin pre-update
 
 
 # Installation
