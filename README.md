@@ -8,7 +8,7 @@ Place '173AHPBuff.dll' In your Exiled Plugins Folder
 
 # Features
 
-Make SCP-173 Have the Upcomming 11.0 AHP Features.
+Makes SCP-173 Have the Upcomming 11.0 AHP Features.
 
 # Configs
 | Config        | Value Type | Default Value | Description |
